@@ -1,0 +1,1 @@
+docker build ./.astral -f ./.astral/.nixpacks/Dockerfile -t api-father --build-arg CI=true --build-arg NIXPACKS_METADATA=node --build-arg NODE_ENV=production --build-arg NPM_CONFIG_PRODUCTION=false --build-arg PORT=80,NIXPACKS_PATH=/Users/family/git/examples/api/app
