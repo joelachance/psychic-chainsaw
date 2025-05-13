@@ -5,7 +5,7 @@
 export default {
 	async infra() {
 		return new astral.App({
-			entrypoint: './app',
+			entrypoint: './',
 		});
 	},
 };
