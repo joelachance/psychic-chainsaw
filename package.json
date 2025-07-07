@@ -5,8 +5,9 @@
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "node app/server.js",
-    "dev": "nodemon app/server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "astral": "astral"
   },
   "dependencies": {
     "express": "^5.1.0"

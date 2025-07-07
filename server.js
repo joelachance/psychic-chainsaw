@@ -2,6 +2,9 @@ import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 80;
 
+// Middleware to parse JSON bodies
+app.use(express.json());
+
 // Root endpoint with query parameter handling
 app.get('/', (req, res) => {
   const { name } = req.query;
@@ -13,11 +16,25 @@ app.get('/', (req, res) => {
   
   // If the name parameter is a number, return an error
   if (!isNaN(name) && name !== '') {
+    console.error('Name cannot be a number');
     return res.status(400).send({ error: 'Name cannot be a number' });
   }
   
   // If a string is passed, return hello with the name
+  console.log(`WORKING: hello ${name}`);
   return res.send(`hello ${name}`);
+});
+
+app.post('/users', (req, res) => {
+  const { name } = req.body;
+  console.log(`WORKING: POST /users ${name}`);
+  return res.send(`POST /users ${name}`);
+});
+
+app.post('/fixme', (req, res) => {
+  const { name } = req.bod;
+  console.log(`WORKING: POST /fixme ${name}`);
+  return res.send(`POST /fixme ${name}`);
 });
 
 // Start the server

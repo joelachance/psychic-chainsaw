@@ -1,11 +1,4 @@
-/**
-* All infrastructure definitions belong in this file.
-* See examples of common deployments here: https://tryastral.com/api/javascript
-*/
+// Astral deployment configuration
 export default {
-	async infra() {
-		return new astral.App({
-			entrypoint: './',
-		});
-	},
+  // deployment settings
 };
