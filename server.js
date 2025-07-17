@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  const { name } = req.body;
-  console.log(`WORKING: POST /users ${name}`);
+  const name = req.body && req.body.name ? req.body.name : null;
+  console.log(`WORKING: POST /users ${name !== null ? name : 'no name provided'}`);))
   return res.send(`POST /users ${name}`);
 });
 
