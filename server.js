@@ -26,13 +26,16 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  const { name } = req.body;
+  const name = req.body ? req.body.name : null;
+  if (!name) {
+    return res.status(400).send({ error: 'Name is required' });
+  }
   console.log(`WORKING: POST /users ${name}`);
   return res.send(`POST /users ${name}`);
 });
 
 app.post('/fixme', (req, res) => {
-  const { name } = req.bod;
+  const { name } = req.body;
   console.log(`WORKING: POST /fixme ${name}`);
   return res.send(`POST /fixme ${name}`);
 });
