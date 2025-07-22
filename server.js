@@ -26,13 +26,21 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  const { name } = req.body;
+  if (!req.body) {
+    console.error('Request body is missing');
+    return res.status(400).send({ error: 'Request body is missing' });
+  }
+  const name = req.body && typeof req.body === 'object' ? req.body.name : undefined;
   console.log(`WORKING: POST /users ${name}`);
   return res.send(`POST /users ${name}`);
 });
 
 app.post('/fixme', (req, res) => {
-  const { name } = req.bod;
+  if (!req.body) {
+    console.error('Request body is missing');
+    return res.status(400).send({ error: 'Request body is missing' });
+  }
+  const name = req.body && typeof req.body === 'object' ? req.body.name : undefined;
   console.log(`WORKING: POST /fixme ${name}`);
   return res.send(`POST /fixme ${name}`);
 });
