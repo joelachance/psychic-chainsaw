@@ -26,13 +26,13 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  const { name } = req.body;
+  const name = req.body ? req.body.name : null;
   console.log(`WORKING: POST /users ${name}`);
   return res.send(`POST /users ${name}`);
 });
 
 app.post('/fixme', (req, res) => {
-  const { name } = req.bod;
+  const { name } = req.body;
   console.log(`WORKING: POST /fixme ${name}`);
   return res.send(`POST /fixme ${name}`);
 });
