@@ -26,6 +26,9 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
+  if (!req.body) {
+    return res.status(400).send({ error: 'Request body is missing' });
+  }
   const { name } = req.body;
   console.log(`WORKING: POST /users ${name}`);
   return res.send(`POST /users ${name}`);
