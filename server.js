@@ -29,14 +29,12 @@ app.post('/users', (req, res) => {
   if (!req.body || !req.body.name) {
     return res.status(400).json({ message: 'Name is required' });
   }
-  const { name } = req.body;
-  console.log(`WORKING: POST /users ${name}`);
+  const { name } = req.body ?? {};  console.log(`WORKING: POST /users ${name}`);
   return res.send(`POST /users ${name}`);
 });
 
 app.post('/fixme', (req, res) => {
-  const { name } = req.body;
-  console.log(`WORKING: POST /fixme ${name}`);
+  const { name } = req.body ?? {};  console.log(`WORKING: POST /fixme ${name}`);
   return res.send(`POST /fixme ${name}`);
 });
 
