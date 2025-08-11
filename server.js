@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-  const { name } = req.body;
+  const name = req.body ? req.body.name : undefined;
   console.log(`WORKING: POST /users ${name}`);
   return res.send(`POST /users ${name}`);
 });
