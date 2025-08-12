@@ -26,12 +26,20 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
+  if (!req.body || typeof req.body !== 'object') {
+    console.error('Request body is missing or not an object');
+    return res.status(400).send({ error: 'Request body is missing or not an object' });
+  }
   const { name } = req.body;
   console.log(`WORKING: POST /users ${name}`);
   return res.send(`POST /users ${name}`);
 });
 
 app.post('/fixme', (req, res) => {
+  if (!req.body || typeof req.body !== 'object') {
+    console.error('Request body is missing or not an object');
+    return res.status(400).send({ error: 'Request body is missing or not an object' });
+  }
   const { name } = req.body;
   console.log(`WORKING: POST /fixme ${name}`);
   return res.send(`POST /fixme ${name}`);
