@@ -32,7 +32,7 @@ app.post('/users', (req, res) => {
 });
 
 app.post('/fixme', (req, res) => {
-  const { name } = req.bod;
+    const { name } = req.body;
   console.log(`WORKING: POST /fixme ${name}`);
   return res.send(`POST /fixme ${name}`);
 });
